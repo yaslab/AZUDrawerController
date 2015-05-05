@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0EEB978D1AF89A1800D1E05F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB978C1AF89A1800D1E05F /* main.m */; };
+		0EEB97901AF89A1800D1E05F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB978F1AF89A1800D1E05F /* AppDelegate.m */; };
+		0EEB97931AF89A1800D1E05F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB97921AF89A1800D1E05F /* ViewController.m */; };
+		0EEB97961AF89A1800D1E05F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEB97941AF89A1800D1E05F /* Main.storyboard */; };
+		0EEB97981AF89A1800D1E05F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EEB97971AF89A1800D1E05F /* Images.xcassets */; };
+		0EEB979B1AF89A1800D1E05F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EEB97991AF89A1800D1E05F /* LaunchScreen.xib */; };
+		0EEB97A71AF89A1900D1E05F /* AZUDrawerControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB97A61AF89A1900D1E05F /* AZUDrawerControllerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0EEB97A11AF89A1900D1E05F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0EEB977F1AF89A1800D1E05F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0EEB97861AF89A1800D1E05F;
+			remoteInfo = AZUDrawerController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0EEB97871AF89A1800D1E05F /* AZUDrawerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AZUDrawerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EEB978B1AF89A1800D1E05F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EEB978C1AF89A1800D1E05F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0EEB978E1AF89A1800D1E05F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0EEB978F1AF89A1800D1E05F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0EEB97911AF89A1800D1E05F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0EEB97921AF89A1800D1E05F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0EEB97951AF89A1800D1E05F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0EEB97971AF89A1800D1E05F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0EEB979A1AF89A1800D1E05F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		0EEB97A01AF89A1900D1E05F /* AZUDrawerControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AZUDrawerControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EEB97A51AF89A1900D1E05F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EEB97A61AF89A1900D1E05F /* AZUDrawerControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AZUDrawerControllerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0EEB97841AF89A1800D1E05F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EEB979D1AF89A1900D1E05F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0EEB977E1AF89A1800D1E05F = {
+			isa = PBXGroup;
+			children = (
+				0EEB97891AF89A1800D1E05F /* AZUDrawerController */,
+				0EEB97A31AF89A1900D1E05F /* AZUDrawerControllerTests */,
+				0EEB97881AF89A1800D1E05F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0EEB97881AF89A1800D1E05F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0EEB97871AF89A1800D1E05F /* AZUDrawerController.app */,
+				0EEB97A01AF89A1900D1E05F /* AZUDrawerControllerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0EEB97891AF89A1800D1E05F /* AZUDrawerController */ = {
+			isa = PBXGroup;
+			children = (
+				0EEB978E1AF89A1800D1E05F /* AppDelegate.h */,
+				0EEB978F1AF89A1800D1E05F /* AppDelegate.m */,
+				0EEB97911AF89A1800D1E05F /* ViewController.h */,
+				0EEB97921AF89A1800D1E05F /* ViewController.m */,
+				0EEB97941AF89A1800D1E05F /* Main.storyboard */,
+				0EEB97971AF89A1800D1E05F /* Images.xcassets */,
+				0EEB97991AF89A1800D1E05F /* LaunchScreen.xib */,
+				0EEB978A1AF89A1800D1E05F /* Supporting Files */,
+			);
+			path = AZUDrawerController;
+			sourceTree = "<group>";
+		};
+		0EEB978A1AF89A1800D1E05F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0EEB978B1AF89A1800D1E05F /* Info.plist */,
+				0EEB978C1AF89A1800D1E05F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0EEB97A31AF89A1900D1E05F /* AZUDrawerControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				0EEB97A61AF89A1900D1E05F /* AZUDrawerControllerTests.m */,
+				0EEB97A41AF89A1900D1E05F /* Supporting Files */,
+			);
+			path = AZUDrawerControllerTests;
+			sourceTree = "<group>";
+		};
+		0EEB97A41AF89A1900D1E05F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0EEB97A51AF89A1900D1E05F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0EEB97861AF89A1800D1E05F /* AZUDrawerController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EEB97AA1AF89A1900D1E05F /* Build configuration list for PBXNativeTarget "AZUDrawerController" */;
+			buildPhases = (
+				0EEB97831AF89A1800D1E05F /* Sources */,
+				0EEB97841AF89A1800D1E05F /* Frameworks */,
+				0EEB97851AF89A1800D1E05F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AZUDrawerController;
+			productName = AZUDrawerController;
+			productReference = 0EEB97871AF89A1800D1E05F /* AZUDrawerController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0EEB979F1AF89A1900D1E05F /* AZUDrawerControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EEB97AD1AF89A1900D1E05F /* Build configuration list for PBXNativeTarget "AZUDrawerControllerTests" */;
+			buildPhases = (
+				0EEB979C1AF89A1900D1E05F /* Sources */,
+				0EEB979D1AF89A1900D1E05F /* Frameworks */,
+				0EEB979E1AF89A1900D1E05F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0EEB97A21AF89A1900D1E05F /* PBXTargetDependency */,
+			);
+			name = AZUDrawerControllerTests;
+			productName = AZUDrawerControllerTests;
+			productReference = 0EEB97A01AF89A1900D1E05F /* AZUDrawerControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0EEB977F1AF89A1800D1E05F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = yaslab;
+				TargetAttributes = {
+					0EEB97861AF89A1800D1E05F = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					0EEB979F1AF89A1900D1E05F = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 0EEB97861AF89A1800D1E05F;
+					};
+				};
+			};
+			buildConfigurationList = 0EEB97821AF89A1800D1E05F /* Build configuration list for PBXProject "AZUDrawerController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0EEB977E1AF89A1800D1E05F;
+			productRefGroup = 0EEB97881AF89A1800D1E05F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0EEB97861AF89A1800D1E05F /* AZUDrawerController */,
+				0EEB979F1AF89A1900D1E05F /* AZUDrawerControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0EEB97851AF89A1800D1E05F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EEB97961AF89A1800D1E05F /* Main.storyboard in Resources */,
+				0EEB979B1AF89A1800D1E05F /* LaunchScreen.xib in Resources */,
+				0EEB97981AF89A1800D1E05F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EEB979E1AF89A1900D1E05F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0EEB97831AF89A1800D1E05F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EEB97931AF89A1800D1E05F /* ViewController.m in Sources */,
+				0EEB97901AF89A1800D1E05F /* AppDelegate.m in Sources */,
+				0EEB978D1AF89A1800D1E05F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0EEB979C1AF89A1900D1E05F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EEB97A71AF89A1900D1E05F /* AZUDrawerControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0EEB97A21AF89A1900D1E05F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0EEB97861AF89A1800D1E05F /* AZUDrawerController */;
+			targetProxy = 0EEB97A11AF89A1900D1E05F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0EEB97941AF89A1800D1E05F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EEB97951AF89A1800D1E05F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0EEB97991AF89A1800D1E05F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EEB979A1AF89A1800D1E05F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0EEB97A81AF89A1900D1E05F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0EEB97A91AF89A1900D1E05F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0EEB97AB1AF89A1900D1E05F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AZUDrawerController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0EEB97AC1AF89A1900D1E05F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AZUDrawerController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0EEB97AE1AF89A1900D1E05F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AZUDrawerControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AZUDrawerController.app/AZUDrawerController";
+			};
+			name = Debug;
+		};
+		0EEB97AF1AF89A1900D1E05F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AZUDrawerControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AZUDrawerController.app/AZUDrawerController";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0EEB97821AF89A1800D1E05F /* Build configuration list for PBXProject "AZUDrawerController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EEB97A81AF89A1900D1E05F /* Debug */,
+				0EEB97A91AF89A1900D1E05F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EEB97AA1AF89A1900D1E05F /* Build configuration list for PBXNativeTarget "AZUDrawerController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EEB97AB1AF89A1900D1E05F /* Debug */,
+				0EEB97AC1AF89A1900D1E05F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0EEB97AD1AF89A1900D1E05F /* Build configuration list for PBXNativeTarget "AZUDrawerControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EEB97AE1AF89A1900D1E05F /* Debug */,
+				0EEB97AF1AF89A1900D1E05F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0EEB977F1AF89A1800D1E05F /* Project object */;
+}
