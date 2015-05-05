@@ -14,6 +14,9 @@
 		0EEB97981AF89A1800D1E05F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EEB97971AF89A1800D1E05F /* Images.xcassets */; };
 		0EEB979B1AF89A1800D1E05F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EEB97991AF89A1800D1E05F /* LaunchScreen.xib */; };
 		0EEB97A71AF89A1900D1E05F /* AZUDrawerControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB97A61AF89A1900D1E05F /* AZUDrawerControllerTests.m */; };
+		0EEB97B31AF89A7C00D1E05F /* AZUDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB97B21AF89A7C00D1E05F /* AZUDrawerController.m */; };
+		0EEB97B61AF89B0C00D1E05F /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB97B51AF89B0C00D1E05F /* LeftViewController.m */; };
+		0EEB97B91AF89B2200D1E05F /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB97B81AF89B2200D1E05F /* RightViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		0EEB97A01AF89A1900D1E05F /* AZUDrawerControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AZUDrawerControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EEB97A51AF89A1900D1E05F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EEB97A61AF89A1900D1E05F /* AZUDrawerControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AZUDrawerControllerTests.m; sourceTree = "<group>"; };
+		0EEB97B11AF89A7C00D1E05F /* AZUDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZUDrawerController.h; sourceTree = "<group>"; };
+		0EEB97B21AF89A7C00D1E05F /* AZUDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZUDrawerController.m; sourceTree = "<group>"; };
+		0EEB97B41AF89B0C00D1E05F /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		0EEB97B51AF89B0C00D1E05F /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		0EEB97B71AF89B2200D1E05F /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
+		0EEB97B81AF89B2200D1E05F /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +90,15 @@
 		0EEB97891AF89A1800D1E05F /* AZUDrawerController */ = {
 			isa = PBXGroup;
 			children = (
+				0EEB97B01AF89A5300D1E05F /* Classes */,
 				0EEB978E1AF89A1800D1E05F /* AppDelegate.h */,
 				0EEB978F1AF89A1800D1E05F /* AppDelegate.m */,
 				0EEB97911AF89A1800D1E05F /* ViewController.h */,
 				0EEB97921AF89A1800D1E05F /* ViewController.m */,
+				0EEB97B41AF89B0C00D1E05F /* LeftViewController.h */,
+				0EEB97B51AF89B0C00D1E05F /* LeftViewController.m */,
+				0EEB97B71AF89B2200D1E05F /* RightViewController.h */,
+				0EEB97B81AF89B2200D1E05F /* RightViewController.m */,
 				0EEB97941AF89A1800D1E05F /* Main.storyboard */,
 				0EEB97971AF89A1800D1E05F /* Images.xcassets */,
 				0EEB97991AF89A1800D1E05F /* LaunchScreen.xib */,
@@ -117,6 +131,15 @@
 				0EEB97A51AF89A1900D1E05F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0EEB97B01AF89A5300D1E05F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0EEB97B11AF89A7C00D1E05F /* AZUDrawerController.h */,
+				0EEB97B21AF89A7C00D1E05F /* AZUDrawerController.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,8 +243,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EEB97931AF89A1800D1E05F /* ViewController.m in Sources */,
+				0EEB97B61AF89B0C00D1E05F /* LeftViewController.m in Sources */,
+				0EEB97B31AF89A7C00D1E05F /* AZUDrawerController.m in Sources */,
 				0EEB97901AF89A1800D1E05F /* AppDelegate.m in Sources */,
 				0EEB978D1AF89A1800D1E05F /* main.m in Sources */,
+				0EEB97B91AF89B2200D1E05F /* RightViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -336,7 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

@@ -8,6 +8,11 @@
 
 #import "AppDelegate.h"
 
+#import "AZUDrawerController.h"
+#import "ViewController.h"
+#import "LeftViewController.h"
+#import "RightViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +22,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    AZUDrawerController *drawerController = (AZUDrawerController *)self.window.rootViewController;
+
+    drawerController.centerViewController = [[ViewController alloc] initWithNibName:nil bundle:nil];
+
+    LeftViewController *leftViewController = [[LeftViewController alloc] initWithStyle:UITableViewStylePlain];
+    leftViewController.preferredContentSize = CGSizeMake(300.f, CGFLOAT_MAX);
+    drawerController.leftViewController = leftViewController;
+
+    RightViewController *rightViewController = [[RightViewController alloc] initWithNibName:nil bundle:nil];
+    rightViewController.preferredContentSize = CGSizeMake(100.f, 200.f);
+    drawerController.rightViewController = rightViewController;
+
     return YES;
 }
 
