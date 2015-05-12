@@ -10,37 +10,27 @@
 
 @interface AZUDrawerController () <UIGestureRecognizerDelegate>
 
-@property (nonatomic) UIView *shadowView;
+@property (nonatomic, strong) UIView *shadowView;
 
-@property (nonatomic) UIScreenEdgePanGestureRecognizer *leftEdgePanGestureRecognizer;
-@property (nonatomic) BOOL leftViewControllerPresenting;
+@property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *leftEdgePanGestureRecognizer;
+@property (nonatomic) CGFloat leftViewControllerShowRatio;
+@property (nonatomic, readonly) BOOL leftViewControllerPresenting;
 
-@property (nonatomic) UIScreenEdgePanGestureRecognizer *rightEdgePanGestureRecognizer;
-@property (nonatomic) BOOL rightViewControllerPresenting;
+@property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *rightEdgePanGestureRecognizer;
+@property (nonatomic) CGFloat rightViewControllerShowRatio;
+@property (nonatomic, readonly) BOOL rightViewControllerPresenting;
 
 @end
 
 @implementation AZUDrawerController
 
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController {
-    return self;
-}
+@dynamic leftViewControllerPresenting;
+@dynamic rightViewControllerPresenting;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    CGSize viewSize = self.view.frame.size;
-
     {
-        CGRect frame = CGRectMake(0.f, 0.f, viewSize.width, viewSize.height);
-        if (self.centerViewController.preferredContentSize.width < viewSize.width) {
-            frame.size.width = self.centerViewController.preferredContentSize.width;
-        }
-        if (self.centerViewController.preferredContentSize.height < viewSize.height) {
-            frame.size.height = self.centerViewController.preferredContentSize.height;
-        }
-        self.centerViewController.view.frame = frame;
-
         [self.centerViewController willMoveToParentViewController:self];
         [self.view addSubview:self.centerViewController.view];
         [self addChildViewController:self.centerViewController];
@@ -48,52 +38,28 @@
     }
 
     {
-        self.shadowView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, viewSize.width, viewSize.height)];
+        self.shadowView = [[UIView alloc] initWithFrame:CGRectZero];
         self.shadowView.backgroundColor = [UIColor blackColor];
         self.shadowView.alpha = 0.f;
         [self.view addSubview:self.shadowView];
     }
 
     if (self.leftViewController) {
-        CGRect frame = CGRectMake(-1.f * viewSize.width, 0.f, viewSize.width, viewSize.height);
-        if (self.leftViewController.preferredContentSize.width < viewSize.width) {
-            frame.size.width = self.leftViewController.preferredContentSize.width;
-            frame.origin.x = -1.f * frame.size.width;
-        }
-        if (self.leftViewController.preferredContentSize.height < viewSize.height) {
-            frame.size.height = self.leftViewController.preferredContentSize.height;
-        }
-        self.leftViewController.view.frame = frame;
-
         [self.leftViewController willMoveToParentViewController:self];
         [self.view addSubview:self.leftViewController.view];
         [self addChildViewController:self.leftViewController];
         [self.leftViewController didMoveToParentViewController:self];
-
-        self.leftViewControllerPresenting = NO;
     }
 
     if (self.rightViewController) {
-        CGRect frame = CGRectMake(viewSize.width, 0.f, viewSize.width, viewSize.height);
-        if (self.rightViewController.preferredContentSize.width < viewSize.width) {
-            frame.size.width = self.rightViewController.preferredContentSize.width;
-        }
-        if (self.rightViewController.preferredContentSize.height < viewSize.height) {
-            frame.size.height = self.rightViewController.preferredContentSize.height;
-        }
-        self.rightViewController.view.frame = frame;
-
         [self.rightViewController willMoveToParentViewController:self];
         [self.view addSubview:self.rightViewController.view];
         [self addChildViewController:self.rightViewController];
         [self.rightViewController didMoveToParentViewController:self];
-
-        self.rightViewControllerPresenting = NO;
     }
 
     {
-        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
-        gesture.delegate = self;
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onViewClicked:)];
         [self.view addGestureRecognizer:gesture];
     }
 
@@ -114,42 +80,92 @@
     }
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+
+    CGSize viewSize = self.view.frame.size;
+
+    if (self.centerViewController) {
+        CGRect frame = CGRectMake(0.f, 0.f, viewSize.width, viewSize.height);
+        if (self.centerViewController.preferredContentSize.width < viewSize.width) {
+            frame.size.width = self.centerViewController.preferredContentSize.width;
+        }
+        if (self.centerViewController.preferredContentSize.height < viewSize.height) {
+            frame.size.height = self.centerViewController.preferredContentSize.height;
+        }
+        self.centerViewController.view.frame = frame;
+    }
+
+    CGFloat alpha = 0.5f * MAX(self.leftViewControllerShowRatio, self.rightViewControllerShowRatio);
+    self.shadowView.frame = CGRectMake(0.f, 0.f, viewSize.width, viewSize.height);
+    self.shadowView.alpha = alpha;
+
+    if (self.leftViewController) {
+        CGRect frame = CGRectZero;
+        frame.size = self.leftViewController.preferredContentSize;
+        // CGFLOAT_MAXを指定された場合の対処
+        if (frame.size.width > viewSize.width) {
+            frame.size.width = viewSize.width;
+        }
+        if (frame.size.height > viewSize.height) {
+            frame.size.height = viewSize.height;
+        }
+        frame.origin.x = -1.f * frame.size.width * (1.f - self.leftViewControllerShowRatio);
+        self.leftViewController.view.frame = frame;
+    }
+
+    if (self.rightViewController) {
+        CGRect frame = CGRectZero;
+        frame.size = self.rightViewController.preferredContentSize;
+        // CGFLOAT_MAXを指定された場合の対処
+        if (frame.size.width > viewSize.width) {
+            frame.size.width = viewSize.width;
+        }
+        if (frame.size.height > viewSize.height) {
+            frame.size.height = viewSize.height;
+        }
+        frame.origin.x = viewSize.width - (frame.size.width * self.rightViewControllerShowRatio);
+        self.rightViewController.view.frame = frame;
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)onTap:(UITapGestureRecognizer *)sender {
+- (void)onViewClicked:(UITapGestureRecognizer *)sender {
     switch (sender.state) {
-        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateEnded: {
+            CGPoint point = [sender locationInView:sender.view];
             if (self.leftViewControllerPresenting) {
-                self.leftViewControllerPresenting = NO;
-                CGRect frame = self.leftViewController.view.frame;
-                frame.origin.x = -1.f * frame.size.width;
-                __weak __typeof(self) weakSelf = self;
-                [UIView animateWithDuration:0.25f delay:0.f options:0 animations:^{
-                    weakSelf.leftViewController.view.frame = frame;
-                    weakSelf.shadowView.alpha = 0.f;
-                } completion:nil];
+                if (!CGRectContainsPoint(self.leftViewController.view.frame, point)) {
+                    self.leftViewControllerShowRatio = 0.f;
+                    [self.view setNeedsLayout];
+                    __weak __typeof(self) weakSelf = self;
+                    [UIView animateWithDuration:0.25f delay:0.f options:0 animations:^{
+                        [weakSelf.view layoutIfNeeded];
+                    } completion:nil];
+                }
             }
             if (self.rightViewControllerPresenting) {
-                self.rightViewControllerPresenting = NO;
-                CGRect frame = self.rightViewController.view.frame;
-                frame.origin.x = CGRectGetWidth(self.view.frame);
-                __weak __typeof(self) weakSelf = self;
-                [UIView animateWithDuration:0.25f delay:0.f options:0 animations:^{
-                    weakSelf.rightViewController.view.frame = frame;
-                    weakSelf.shadowView.alpha = 0.f;
-                } completion:nil];
+                if (!CGRectContainsPoint(self.rightViewController.view.frame, point)) {
+                    self.rightViewControllerShowRatio = 0.f;
+                    [self.view setNeedsLayout];
+                    __weak __typeof(self) weakSelf = self;
+                    [UIView animateWithDuration:0.25f delay:0.f options:0 animations:^{
+                        [weakSelf.view layoutIfNeeded];
+                    } completion:nil];
+                }
             }
             break;
+        }
         default:
             break;
     }
 }
 
 - (void)onScreenEdgePan:(UIScreenEdgePanGestureRecognizer *)sender {
-    NSLog(@"PAN");
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
             break;
@@ -157,10 +173,6 @@
             // 端からの移動量
             // 右方向は+、左方向は-
             CGPoint translation = [sender translationInView:self.view];
-            NSLog(@"TRN: (%@) (%@)", @(translation.x), @(translation.y));
-            // 加速度
-            CGPoint velocity = [sender velocityInView:self.view];
-            NSLog(@"VEL: (%@) (%@)", @(velocity.x), @(velocity.y));
 
             if ([sender isEqual:self.leftEdgePanGestureRecognizer]) {
                 CGRect frame = self.leftViewController.view.frame;
@@ -168,10 +180,7 @@
                 if (frame.origin.x > 0.f) {
                     frame.origin.x = 0.f;
                 }
-                self.leftViewController.view.frame = frame;
-                // 背景の透明度
-                CGFloat alpha = 0.5f * (1.f - (fabs(CGRectGetMinX(frame)) / CGRectGetWidth(frame)));
-                self.shadowView.alpha = alpha;
+                self.leftViewControllerShowRatio = 1.f - (fabs(CGRectGetMinX(frame)) / CGRectGetWidth(frame));
             }
             else if ([sender isEqual:self.rightEdgePanGestureRecognizer]) {
                 CGFloat viewWidth = CGRectGetWidth(self.view.frame);
@@ -180,49 +189,37 @@
                 if (frame.origin.x < viewWidth - frame.size.width) {
                     frame.origin.x = viewWidth - frame.size.width;
                 }
-                self.rightViewController.view.frame = frame;
-                // 背景の透明度
-                CGFloat alpha = 0.5f * ((viewWidth - CGRectGetMinX(frame)) / CGRectGetWidth(frame));
-                self.shadowView.alpha = alpha;
+                self.rightViewControllerShowRatio = (viewWidth - CGRectGetMinX(frame)) / CGRectGetWidth(frame);
             }
+            [self.view setNeedsLayout];
             break;
         }
         case UIGestureRecognizerStateEnded: {
             if ([sender isEqual:self.leftEdgePanGestureRecognizer]) {
                 CGRect frame = self.leftViewController.view.frame;
-                CGFloat alpha = 0.f;
                 if (frame.origin.x >= -1.f * (frame.size.width / 2.f)) {
-                    frame.origin.x = 0.f;
-                    alpha = 0.5f;
-                    self.leftViewControllerPresenting = YES;
+                    self.leftViewControllerShowRatio = 1.f;
                 }
                 else {
-                    frame.origin.x = -1.f * frame.size.width;
-                    self.leftViewControllerPresenting = NO;
+                    self.leftViewControllerShowRatio = 0.f;
                 }
-                __weak __typeof(self) weakSelf = self;
+                [self.view setNeedsLayout];
                 [UIView animateWithDuration:0.25f delay:0.f options:0 animations:^{
-                    weakSelf.leftViewController.view.frame = frame;
-                    weakSelf.shadowView.alpha = alpha;
+                    [self.view layoutIfNeeded];
                 } completion:nil];
             }
             else if ([sender isEqual:self.rightEdgePanGestureRecognizer]) {
                 CGFloat viewWidth = CGRectGetWidth(self.view.frame);
                 CGRect frame = self.rightViewController.view.frame;
-                CGFloat alpha = 0.f;
                 if (frame.origin.x <= viewWidth - (frame.size.width / 2.f)) {
-                    frame.origin.x = viewWidth - frame.size.width;
-                    alpha = 0.5f;
-                    self.rightViewControllerPresenting = YES;
+                    self.rightViewControllerShowRatio = 1.f;
                 }
                 else {
-                    frame.origin.x = viewWidth;
-                    self.rightViewControllerPresenting = NO;
+                    self.rightViewControllerShowRatio = 0.f;
                 }
-                __weak __typeof(self) weakSelf = self;
+                [self.view setNeedsLayout];
                 [UIView animateWithDuration:0.25f delay:0.f options:0 animations:^{
-                    weakSelf.rightViewController.view.frame = frame;
-                    weakSelf.shadowView.alpha = alpha;
+                    [self.view layoutIfNeeded];
                 } completion:nil];
             }
             break;
@@ -232,19 +229,15 @@
     }
 }
 
-#pragma mark - Property Accesser
+#pragma mark - 
 
-//- (void)setCenterViewController:(UIViewController *)centerViewController {
-//
-//}
-//
-//- (void)setLeftViewController:(UIViewController *)leftViewController {
-//
-//}
-//
-//- (void)setRightViewController:(UIViewController *)rightViewController {
-//
-//}
+- (BOOL)leftViewControllerPresenting {
+    return self.leftViewControllerShowRatio > 0.f;
+}
+
+- (BOOL)rightViewControllerPresenting {
+    return self.rightViewControllerShowRatio > 0.f;
+}
 
 #pragma mark - UIGestureRecognizerDelegate
 

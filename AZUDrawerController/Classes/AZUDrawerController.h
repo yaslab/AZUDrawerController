@@ -20,6 +20,4 @@
 - (void)showRightWithAnimated:(BOOL)animated;
 - (void)dismissRightWithAnimated:(BOOL)animated;
 
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController;
-
 @end
